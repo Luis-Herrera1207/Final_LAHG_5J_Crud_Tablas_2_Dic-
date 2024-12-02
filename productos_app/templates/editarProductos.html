@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block cuerpo %}
+<iiv class="row">
+
+<div class="col-md-4 offset-md-4">
+<!-- La targeta card -->
+<div class="card"> <!-- targeta -->
+    <div class="card-body">
+        <form action="/editarProductos/" method="POST"> {% csrf_token %} <!--- formulario -->
+            
+            <div class="form-group">
+                <input type="text" id="numid_producto" name="numid_producto" class="form-control"
+                value="{{misProductos.id_producto}}" placeholder="ID del producto" minLenght="1" maxLenght="10"  required>
+            </div>
+
+            <div class="form-group py-2">
+                <input type="text" id="txtnombre" name="txtnombre" class="form-control" 
+                value="{{misProductos.nombre}}" placeholder="Nombre del producto" maxLenght="50" required>     
+            </div>
+
+            <div class="form-group py-2">
+                <input type="text" id="txtmarca" name="txtmarca" class="form-control"
+                value="{{misProductos.marca}}" placeholder="Marca del producto" max="50" required>
+            </div>
+
+            <div class="form-group py-2">
+                <input type="text" id="txttela" name="txttela" class="form-control"
+                value="{{misProductos.tela}}" placeholder="Tela del producto" max="20" required>
+            </div>
+
+            <div class="form-group py-2">
+                <input type="text" id="numtalla" name="numtalla" class="form-control"
+                value="{{misProductos.talla}}" placeholder="talla del producto" max="50" required>
+            </div>
+
+            <div class="form-group py-2">
+                <input type="text" id="numprecio" name="numprecio" class="form-control"
+                value="{{misProductos.precio}}" placeholder="Precio del libro" max="50" minLenght="1" maxLenght="10" required>
+            </div>
+
+            <div class="form-group py-2">
+                <input type="text" id="numstock" name="numstock" class="form-control"
+                value="{{misProductos.stock}}" placeholder="Stock del producto" max="100" required>
+            </div>
+
+            <div class="form-group py-2">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </form><!--- formulario -->
+    </div>
+</div> <!-- targeta -->
+
+
+<!-- La targeta card -->
+
+</div><!-- columna -->
+
+</div><!-- La fila -->
+
+{% endblock %}
