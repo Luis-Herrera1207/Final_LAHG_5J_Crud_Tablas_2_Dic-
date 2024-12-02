@@ -8,7 +8,7 @@ def inicio_vistaVentas(request):
 
 def registrarVentas(request):
     id_venta=request.POST["id_venta"]
-    id_libro=request.POST["numid_libro"]
+    id_producto=request.POST["numid_producto"]
     fecha=request.POST["datefecha"]
     cantidad=request.POST["numcantidad"]
     precio=request.POST["numprecio"]
@@ -16,7 +16,7 @@ def registrarVentas(request):
     id_empleado=request.POST["id_empleado"]
     
     guardarVentas=Ventas.objects.create(
-        id_venta=id_venta,id_libro=id_libro,fecha=fecha,cantidad=cantidad,precio=precio,
+        id_venta=id_venta,id_producto=id_producto,fecha=fecha,cantidad=cantidad,precio=precio,
         id_cliente=id_cliente,id_empleado=id_empleado
     ) #GUARDA EL REGISTRO
     
@@ -29,7 +29,7 @@ def seleccionarVentas(request,id_venta):
 
 def editarVentas(request):
     id_venta=request.POST["id_venta"]
-    id_libro=request.POST["numid_libro"]
+    id_producto=request.POST["numid_producto"]
     fecha=request.POST["datefecha"]
     cantidad=request.POST["numcantidad"]
     precio=request.POST["numprecio"]
@@ -38,7 +38,7 @@ def editarVentas(request):
     
     ventas=Ventas.objects.get(id_venta=id_venta)
     ventas.id_venta=id_venta
-    ventas.id_libro=id_libro
+    ventas.id_producto=id_producto
     ventas.fecha=fecha
     ventas.cantidad=cantidad
     ventas.precio=precio
